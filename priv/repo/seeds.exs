@@ -3,7 +3,6 @@ defmodule CreatePlayers do
     "rushing.json"
     |> read_file_and_decode()
     |> Enum.map(&create_struct/1)
-    |> IO.inspect
   end
 
   def read_file_and_decode(file) do

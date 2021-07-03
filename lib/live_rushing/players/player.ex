@@ -1,4 +1,4 @@
-defmodule LiveRushing.Player do
+defmodule LiveRushing.Players.Player do
   use Ecto.Schema
   import Ecto.Changeset
 

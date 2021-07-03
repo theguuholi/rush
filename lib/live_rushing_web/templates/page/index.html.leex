@@ -1,0 +1,50 @@
+<table style="color: white;" class="highlight centered responsive-table">
+    <thead>
+        <tr>
+            <th>Player</th>
+            <th>
+                <%= LiveRushingWeb.PageLive.sort_link(@socket, "Yds", :total_yards, @sort, @player) %>
+            </th>
+            <th>
+                Lng
+            </th>
+            <th>lgnt</th>
+            <th>
+                TD
+            </th>
+            <th>Team</th>
+            <th>Pos</th>
+            <th>Att/G</th>
+            <th>Att</th>
+            <th>Yds</th>
+            <th>Yds/G</th>
+            <th>1st</th>
+            <th>1st%</th>
+            <th>20+</th>
+            <th>40+</th>
+            <th>FUM</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= for player <- @players do %>
+        <tr class="grey darken-4" id="player-<%= player.id%>">
+            <td><%= player.name %></td>
+            <td><%= player.total_yards %></td>
+            <td class="light-blue-text"><%= player.longest_rush %></td>
+            <td><%= player.longest_rush_with_touchdown %></td>
+            <td class="light-blue-text"><%= player.total_touchdowns %></td>
+            <td><%= player.team %></td>
+            <td class="light-blue-text"><%= player.position %></td>
+            <td><%= player.attempts_avg %></td>
+            <td class="light-blue-text"><%= player.attempts %></td>
+            <td><%= player.avg_yards_per_attempts %></td>
+            <td class="light-blue-text"><%= player.yards_per_game %></td>
+            <td><%= player.first_down %></td>
+            <td class="light-blue-text"><%= player.first_down_ratio %></td>
+            <td class="light-blue-text"><%= player.twenty_yards %></td>
+            <td><%= player.forty_yards %></td>
+            <td class="light-blue-text"><%= player.fumbles %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
