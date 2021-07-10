@@ -1,0 +1,9 @@
+<%= LiveRushingWeb.PageLive.sort_link(@socket, @text, @field, @sort, @player) %>
+<%= if @field == @sort.sort_by do %>
+    <%= if @sort.sort_order != :asc do %>
+        <i class="material-icons blue-text">arrow_drop_up</i>
+    <% end %>
+    <%= if @sort.sort_order != :desc do %>
+        <i class="material-icons blue-text">arrow_drop_down</i>
+    <% end  %>
+<% end  %>

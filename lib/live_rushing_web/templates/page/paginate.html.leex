@@ -1,0 +1,16 @@
+
+<ul class="pagination">
+    <%= if @paginate.page > 1 do %>
+    <li class="waves-effect waves-light">
+        <%= LiveRushingWeb.PageLive.pagination_link(@socket, "<<", @paginate.page - 1, @player, @sort, @paginate) %>
+    </li>
+    <% end %>
+    <%= for i <- (@paginate.page - 2)..(@paginate.page + 2), i > 0 do %>
+    <li class="<%= if i == @paginate.page, do: "active blue", else: "waves-effect" %>">
+        <%= LiveRushingWeb.PageLive.pagination_link(@socket, i, i, @player, @sort, @paginate) %>
+    </li>
+    <% end %>
+    <li class="waves-effect waves-light">
+        <%= LiveRushingWeb.PageLive.pagination_link(@socket, ">>", @paginate.page + 1, @player, @sort, @paginate) %>
+    </li>
+</ul>

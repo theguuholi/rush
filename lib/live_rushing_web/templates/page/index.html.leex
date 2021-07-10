@@ -1,16 +1,40 @@
+<div class="row">
+    <form action="" phx-change="search" id="search-player">
+        <div class="col s12">
+            <label for="player"></label>
+            <input  type="text"
+                    class="white-text"
+                    id="player"
+                    value="<%= @player %>"
+                    name="player"
+                    autocomplete="off"
+                    placeholder="Filter by Player"
+            >
+        </div>
+    </form>
+</div>
 <table style="color: white;" class="highlight centered responsive-table">
     <thead>
         <tr>
             <th>Player</th>
             <th>
-                <%= LiveRushingWeb.PageLive.sort_link(@socket, "Yds", :total_yards, @sort, @player) %>
+                <%= live_component @socket,
+                    LiveRushingWeb.Components.Sort,
+                    sort: @sort, player: @player, field: :total_yards, text: "Yds"
+                %>
             </th>
             <th>
-                Lng
+                <%= live_component @socket,
+                    LiveRushingWeb.Components.Sort,
+                    sort: @sort, player: @player, field: :longest_rush, text: "Lng"
+                %>
             </th>
             <th>lgnt</th>
             <th>
-                TD
+                <%= live_component @socket,
+                    LiveRushingWeb.Components.Sort,
+                    sort: @sort, player: @player, field: :total_touchdowns, text: "TD"
+                %>
             </th>
             <th>Team</th>
             <th>Pos</th>
@@ -48,3 +72,10 @@
         <% end %>
     </tbody>
 </table>
+
+<%= live_component @socket,
+    LiveRushingWeb.Components.Paginate,
+    paginate: @paginate,
+    player: @player,
+    sort: @sort
+%>
