@@ -12,7 +12,7 @@ defmodule CreatePlayers do
   end
 
   def create_struct(player) do
-    %LiveRushing.Player{
+    %LiveRushing.Players.Player{
       name: player["Player"],
       team: player["Team"],
       position: player["Pos"],

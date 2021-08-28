@@ -20,27 +20,27 @@
             <th>
                 <%= live_component @socket,
                     LiveRushingWeb.Components.Sort,
-                    sort: @sort, player: @player, field: :total_yards, text: "Yds"
+                    sort: @sort, player: @player, field: :total_yards, text: "Yds", id: "yds-sort"
                 %>
             </th>
             <th>
                 <%= live_component @socket,
                     LiveRushingWeb.Components.Sort,
-                    sort: @sort, player: @player, field: :longest_rush, text: "Lng"
+                    sort: @sort, player: @player, field: :longest_rush, text: "Lng", id: "lng-sort"
                 %>
             </th>
             <th>lgnt</th>
             <th>
                 <%= live_component @socket,
                     LiveRushingWeb.Components.Sort,
-                    sort: @sort, player: @player, field: :total_touchdowns, text: "TD"
+                    sort: @sort, player: @player, field: :total_touchdowns, text: "TD", id: "td-sort"
                 %>
             </th>
             <th>Team</th>
             <th>Pos</th>
             <th>Att/G</th>
             <th>Att</th>
-            <th>Yds</th>
+            <th><a href="#">Yds</a></th>
             <th>Yds/G</th>
             <th>1st</th>
             <th>1st%</th>

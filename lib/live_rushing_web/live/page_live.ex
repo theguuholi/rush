@@ -39,14 +39,15 @@ defmodule LiveRushingWeb.PageLive do
     [player: player, sort: sort, paginate: paginate]
   end
 
-  def sort_link(socket, text, field, sort, player) do
+  def sort_link(socket, text, field, sort, player, id) do
     live_patch(text,
       to:
         Routes.page_path(socket, :index,
           sort_by: field,
           sort_order: (sort.sort_order == :asc && :desc) || :asc,
           player: player
-        )
+        ),
+        id: id
     )
   end
 
