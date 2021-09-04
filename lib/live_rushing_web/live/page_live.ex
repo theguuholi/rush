@@ -51,7 +51,7 @@ defmodule LiveRushingWeb.PageLive do
     )
   end
 
-  def pagination_link(socket, text, page, player, sort, paginate) do
+  def pagination_link(socket, text, page, player, sort, paginate, id) do
     live_patch(text,
       to:
         Routes.page_path(
@@ -62,7 +62,8 @@ defmodule LiveRushingWeb.PageLive do
           per_page: paginate.per_page,
           sort_by: sort.sort_by,
           sort_order: sort.sort_order
-        )
+        ),
+      id: "page-#{id}"
     )
   end
 
